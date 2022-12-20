@@ -7,12 +7,14 @@ import cn.hutool.core.util.RandomUtil;
 import com.almond.dto.LoginFormDTO;
 import com.almond.dto.Result;
 import com.almond.dto.UserDTO;
+import com.almond.utils.CacheClient;
 import com.almond.utils.RegexUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.almond.entity.User;
 import com.almond.mapper.UserMapper;
 import com.almond.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 

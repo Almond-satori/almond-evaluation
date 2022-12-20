@@ -1,9 +1,11 @@
 package com.almond.controller;
 
 
+import cn.hutool.core.bean.BeanUtil;
 import com.almond.dto.LoginFormDTO;
 import com.almond.dto.Result;
 import com.almond.dto.UserDTO;
+import com.almond.entity.User;
 import com.almond.entity.UserInfo;
 import com.almond.service.IUserInfoService;
 import com.almond.service.IUserService;
@@ -79,5 +81,15 @@ public class UserController {
         info.setUpdateTime(null);
         // 返回
         return Result.ok(info);
+    }
+
+    @GetMapping("/{id}")
+    public Result queryUserById(@PathVariable("id") Long userId){
+        User user = userService.getById(userId);
+        if(user==null) {
+            return Result.ok();
+        }
+        UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
+        return Result.ok(userDTO);
     }
 }

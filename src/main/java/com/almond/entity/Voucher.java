@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
  * 
  * </p>
  *
- * @author 虎哥
- * @since 2021-12-22
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -46,6 +44,7 @@ public class Voucher implements Serializable {
     /**
      * 副标题
      */
+    @TableField(value = "sub_title")
     private String subTitle;
 
     /**
